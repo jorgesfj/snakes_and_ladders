@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:snakes_and_ladders/enums/player_type.dart';
 
 class CobrasEscadas {
@@ -10,7 +11,7 @@ class CobrasEscadas {
   CobrasEscadas(this.positionPlayer1, this.positionPlayer2, this.currentPlayer,
       this.valueDice1, this.valueDice2);
 
-  jogar() {
+  jogar(context) {
     if (currentPlayer == PlayerType.player1) {
       positionPlayer1 += (valueDice1 + valueDice2);
       if (positionPlayer1 > 100) {
@@ -59,7 +60,7 @@ class CobrasEscadas {
         positionPlayer1 = 88;
       } else if (positionPlayer1 == 100) {
         _reset();
-        _showDialog(PlayerType.player1);
+        _showDialog(PlayerType.player1, context);
       }
       valueDice1 == valueDice2
           ? currentPlayer = PlayerType.player1
@@ -113,7 +114,7 @@ class CobrasEscadas {
         positionPlayer2 = 88;
       } else if (positionPlayer2 == 100) {
         _reset();
-        _showDialog(PlayerType.player2);
+        _showDialog(PlayerType.player2, context);
       }
       valueDice1 == valueDice2
           ? currentPlayer = PlayerType.player2
@@ -122,8 +123,26 @@ class CobrasEscadas {
     }
   }
 
-  _showDialog(player) {
-    print(player + " Venceu!");
+  _showDialog(player, context) {
+    var jogador = player == PlayerType.player1 ? "Jogador 1" : "Jogador 2";
+    var cor = player == PlayerType.player1 ? Colors.red : Colors.orange;
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        // retorna um objeto do tipo Dialog
+        return AlertDialog(
+          title: new Text("Jogo Acabou"),
+          content: new Text("O Jogador: " + jogador + " venceu o jogo",
+              style: TextStyle(color: cor)),
+          actions: <Widget>[
+            // define os botões na base do dialogo
+            new IconButton(
+                onPressed: () => Navigator.of(context).pop(),
+                icon: Icon(Icons.close))
+          ],
+        );
+      },
+    );
   }
 
   _reset() {

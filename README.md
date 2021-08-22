@@ -1,6 +1,25 @@
-# snakes_and_ladders
+# Seleção de Desenvolvedor de Software - Escribo
+# Teste Técnico 02 - 
+Implementação do Jogo Cobras e Escadas
+Esse projeto foi desenvolvido para FLUTTER WEB, então executar em um navegador.
+### 📋 Pré-requisitos
+A tarefa foi desenvolvida em Flutter e Dart 
+Versão utilizada: Flutter (Channel stable, 2.2.2, on Microsoft Windows [versÃ£o 10.0.19042.1165], locale pt-BR)
 
-A new Flutter project.
+### 🔧 Instalação
+O Flutter pode ser instalado através deste link: https://flutter.dev/
+
+## ⚙️ Executando
+Executar um projeto flutter normalmente
+```
+flutter run
+```
+
+
+## ✒️ Autor
+Jorge Soares – jorge.farias@arapiraca.ufal.br
+
+[https://github.com/jorgesfj](https://github.com/jorgesfj)
 
 ## Getting Started
 
